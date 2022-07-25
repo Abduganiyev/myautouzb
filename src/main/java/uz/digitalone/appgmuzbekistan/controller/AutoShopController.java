@@ -48,6 +48,6 @@ public class AutoShopController {
 
     @DeleteMapping("/{id}")
     private AutoShop deleteRole(@PathVariable String id) {
-        return null;
+        return new AutoShop();
     }
 }
