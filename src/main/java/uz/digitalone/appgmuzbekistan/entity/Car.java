@@ -39,7 +39,4 @@ public class Car extends AbsEntity {
 
     @ManyToOne
     private GM company;
-
-
-
 }
