@@ -2,7 +2,7 @@ package uz.digitalone.appgmuzbekistan.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import uz.digitalone.appgmuzbekistan.dto.GMDto;
+import uz.digitalone.appgmuzbekistan.dto.CompanyDto;
 import uz.digitalone.appgmuzbekistan.entity.GM;
 import uz.digitalone.appgmuzbekistan.service.CompanyService;
 
@@ -21,21 +21,21 @@ public class CompanyController {
     private final CompanyService companyService;
     @GetMapping
     private List<GM> findAll() {
-        return null;
+        return companyService.findAll();
     }
 
     @PostMapping
-    private GM saveAll(@RequestBody List<GMDto> dto) {
-        return null;
+    private List<GM> saveAll(@RequestBody List<CompanyDto> dto) {
+        return companyService.saveAll(dto);
     }
 
     @PutMapping("/{id}")
-    private GM updateGM(@PathVariable("id") Long GMId,@RequestBody GM dto) {
-        return null;
+    private GM updateGM(@PathVariable("id") Long GMId,@RequestBody CompanyDto dto) {
+        return companyService.updateCompany(GMId,dto);
     }
 
     @DeleteMapping("/{id}")
-    private GM deleteGM(@PathVariable Long id) {
-        return null;
+    private String deleteGM(@PathVariable Long id) {
+        return companyService.delete(id);
     }
 }

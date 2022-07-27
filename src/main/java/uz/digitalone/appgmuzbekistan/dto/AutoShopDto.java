@@ -12,10 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class AutoShopDto {
     private String name;
-
     private Long addressId;
-
     private Long companyId;
-
     private Set<Long> cars = new HashSet<>();
 }

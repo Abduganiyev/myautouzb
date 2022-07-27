@@ -3,10 +3,7 @@ package uz.digitalone.appgmuzbekistan.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.digitalone.appgmuzbekistan.dto.CarDto;
-import uz.digitalone.appgmuzbekistan.dto.GMDto;
 import uz.digitalone.appgmuzbekistan.entity.Car;
-import uz.digitalone.appgmuzbekistan.entity.GM;
-import uz.digitalone.appgmuzbekistan.service.CompanyService;
 
 import java.util.List;
 

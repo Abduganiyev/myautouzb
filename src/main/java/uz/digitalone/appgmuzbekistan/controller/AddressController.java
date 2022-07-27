@@ -30,13 +30,13 @@ public class AddressController {
     }
 
     @PutMapping("/{id}")
-    private Address updateRegion(@PathVariable("id") Long regionId,@RequestBody AddressDto dto) {
-        return null;
+    private Address updateRole(@PathVariable("id") Long addressId, @RequestBody AddressDto dto) {
+        return addressService.updateAddress(addressId, dto);
     }
 
     @DeleteMapping("/{id}")
-    private Address deleteAddress(@PathVariable Long id) {
-        return null;
+    private String  deleteDistrict(@PathVariable Long id) {
+        return addressService.deleteAddress(id);
     }
 
 }

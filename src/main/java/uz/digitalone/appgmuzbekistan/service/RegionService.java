@@ -11,4 +11,8 @@ public interface RegionService {
     List<Region> findAll();
 
     List<Region> saveAll(List<RegionDto> dto);
+
+    Region updateRegion(Long regionId, RegionDto dto);
+
+    String deleteRegion(Long id);
 }

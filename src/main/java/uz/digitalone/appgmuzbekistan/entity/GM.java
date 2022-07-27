@@ -35,6 +35,4 @@ public class GM extends AbsEntity {
 
     @ManyToOne
     private GM parent;      // parent - Filialning Asosiy Companyasi
-
-
 }

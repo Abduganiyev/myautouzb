@@ -31,12 +31,13 @@ public class AutoShopController {
 
     @GetMapping
     private List<AutoShop> findAll() {
-        return null;
+        return autoShopService.findAll();
     }
 
     @PostMapping
-    private AutoShop saveAll(@RequestBody List<AutoShopDto> dto) {
-        return null;
+    private List<AutoShop> saveAll(@RequestBody List<AutoShopDto> dto) {
+        // TODO: 27.07.2022 SaveAll ni tugatish
+        return autoShopService.saveAll(dto);
     }
 
     @PutMapping("/{id}")

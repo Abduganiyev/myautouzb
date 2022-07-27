@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RegionDto {
     private String name;
-
     private Double area;
-
     private Long population;
 }

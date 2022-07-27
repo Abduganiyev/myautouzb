@@ -11,4 +11,9 @@ public interface DistrictService {
     List<District> findAll();
 
     List<District> saveAll(List<DistrictDto> districts);
+
+
+    String deleteRegion(Long id);
+
+    District updateDistrict(Long districtId, DistrictDto dto);
 }

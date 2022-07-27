@@ -33,13 +33,13 @@ public class RegionController {
     }
 
     @PutMapping("/{id}")
-    private Region updateRegion(@PathVariable("id") Long regionId,@RequestBody Region dto) {
-        return null;
+    private Region updateRegion(@PathVariable("id") Long regionId,@RequestBody RegionDto dto) {
+        return regionService.updateRegion(regionId, dto);
     }
 
     @DeleteMapping("/{id}")
-    private Region deleteRegion(@PathVariable Long id) {
-        return null;
+    private String deleteRegion(@PathVariable Long id) {
+        return regionService.deleteRegion(id);
     }
 
 }

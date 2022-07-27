@@ -34,4 +34,32 @@ public class AddressServiceImp implements AddressService {
         }
         return addressRepository.saveAll(addressList);
     }
+
+    @Override
+    public Address updateAddress(Long addressId, AddressDto dto) {
+        if (!addressRepository.existsById(addressId))
+            throw new RuntimeException("Address Not Found");
+
+        if (!districtRepository.existsById(dto.getDistrictId()))
+            throw new RuntimeException("District Not Found");
+
+        Optional<District> district = districtRepository.findById(dto.getDistrictId());
+        Optional<Address> updateAddress = addressRepository.findById(addressId);
+        Address address = updateAddress.get();
+        address.setDistrict(district.get());
+        address.setHome(dto.getHome());
+        address.setStreet(dto.getStreet());
+
+        return address;
+    }
+
+    @Override
+    public String deleteAddress(Long id) {
+        if (addressRepository.existsById(id)) {
+            addressRepository.deleteById(id);
+            return "Successfully deleted";
+        }
+        throw new RuntimeException("District Not Found");
+    }
+
 }

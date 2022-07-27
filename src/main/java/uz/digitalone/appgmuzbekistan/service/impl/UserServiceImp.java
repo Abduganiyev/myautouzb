@@ -76,6 +76,6 @@ public class UserServiceImp implements UserService {
                 userRepository.deleteById(id);
                 return "Successfully deleted";
         }
-        throw new RuntimeException("Role Not Found");
+        throw new RuntimeException("User Not Found");
     }
 }

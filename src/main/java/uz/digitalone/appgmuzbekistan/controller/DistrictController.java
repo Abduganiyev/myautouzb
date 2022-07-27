@@ -34,13 +34,12 @@ public class DistrictController {
     }
 
     @PutMapping("/{id}")
-    private District updateRole(@PathVariable("id") Long districtId,@RequestBody District dto) {
-        return null;
+    private District updateRole(@PathVariable("id") Long districtId,@RequestBody DistrictDto dto) {
+        return districtService.updateDistrict(districtId, dto);
     }
 
     @DeleteMapping("/{id}")
-    private Region deleteDistrict(@PathVariable Long id) {
-        return null;
+    private String  deleteDistrict(@PathVariable Long id) {
+        return districtService.deleteRegion(id);
     }
-
 }

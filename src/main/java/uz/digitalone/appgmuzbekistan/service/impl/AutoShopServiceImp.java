@@ -1,6 +1,7 @@
 package uz.digitalone.appgmuzbekistan.service.impl;
 
 import org.springframework.stereotype.Service;
+import uz.digitalone.appgmuzbekistan.dto.AutoShopDto;
 import uz.digitalone.appgmuzbekistan.entity.AutoShop;
 import uz.digitalone.appgmuzbekistan.repository.AutoShopRepository;
 import uz.digitalone.appgmuzbekistan.service.AutoShopService;
@@ -29,5 +30,18 @@ public class AutoShopServiceImp implements AutoShopService {
     @Override
     public List<AutoShop> selectAllByCompanyId(Long companyId, String name) {
         return autoShopRepository.selectAllByCompanyId(companyId,name);
+    }
+
+    @Override
+    public List<AutoShop> findAll() {
+        return autoShopRepository.findAll();
+    }
+
+    @Override
+    public List<AutoShop> saveAll(List<AutoShopDto> dto) {
+        for (AutoShopDto autoShopDto : dto) {
+
+        }
+        return null;
     }
 }

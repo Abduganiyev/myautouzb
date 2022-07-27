@@ -11,4 +11,8 @@ public interface AddressService {
     List<Address> findAll();
 
     List<Address> saveAll(List<AddressDto> dto);
+
+    Address updateAddress(Long addressId, AddressDto dto);
+
+    String deleteAddress(Long id);
 }

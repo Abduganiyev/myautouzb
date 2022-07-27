@@ -9,6 +9,7 @@ import uz.digitalone.appgmuzbekistan.service.RegionService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,5 +27,28 @@ public class RegionServiceImp implements RegionService {
             regionList.add(new Region(regionDto.getName(), regionDto.getArea(), regionDto.getPopulation()));
         }
         return regionRepository.saveAll(regionList);
+    }
+
+    @Override
+    public Region updateRegion(Long regionId, RegionDto dto) {
+        if (!regionRepository.existsById(regionId))
+            throw new RuntimeException("Region Not Found");
+
+        Optional<Region> updateRegion = regionRepository.findById(regionId);
+        Region region = updateRegion.get();
+        region.setArea(dto.getArea());
+        region.setName(dto.getName());
+        region.setPopulation(dto.getPopulation());
+
+        return region;
+    }
+
+    @Override
+    public String deleteRegion(Long id) {
+        if (regionRepository.existsById(id)) {
+            regionRepository.deleteById(id);
+            return "Successfully deleted";
+        }
+        throw new RuntimeException("Region Not Found");
     }
 }
