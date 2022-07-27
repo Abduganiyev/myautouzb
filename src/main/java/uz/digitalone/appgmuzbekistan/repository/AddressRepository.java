@@ -13,4 +13,5 @@ import uz.digitalone.appgmuzbekistan.entity.Region;
 
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Long> {
+    boolean existsByStreetAndHome(String street, String home);
 }

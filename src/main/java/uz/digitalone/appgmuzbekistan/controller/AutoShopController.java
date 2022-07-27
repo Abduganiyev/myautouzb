@@ -1,5 +1,6 @@
 package uz.digitalone.appgmuzbekistan.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.digitalone.appgmuzbekistan.dto.AutoShopDto;
 import uz.digitalone.appgmuzbekistan.dto.RoleDto;
@@ -17,12 +18,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/auto_shops")
+@RequiredArgsConstructor
 public class AutoShopController {
     private final AutoShopService autoShopService;
-    public AutoShopController(AutoShopService autoShopService) {
-        this.autoShopService = autoShopService;
-    }
-
     @GetMapping("/{company_id}/list")
     private List<AutoShop> findAllByCompanyId(@PathVariable(value = "company_id") Long companyId,
                                               @RequestParam(value = "company_name") String name) {

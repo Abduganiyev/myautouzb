@@ -1,5 +1,6 @@
 package uz.digitalone.appgmuzbekistan.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.digitalone.appgmuzbekistan.dto.AddressDto;
 import uz.digitalone.appgmuzbekistan.entity.Address;
@@ -15,21 +16,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/addresses")
+@RequiredArgsConstructor
 public class AddressController {
     private final AddressService addressService;
-
-    public AddressController(AddressService addressService) {
-        this.addressService = addressService;
-    }
-
     @GetMapping
     private List<Address> findAll() {
-        return null;
+        return addressService.findAll();
     }
 
     @PostMapping
-    private Address saveAll(@RequestBody List<Address> dto) {
-        return null;
+    private List<Address> saveAll(@RequestBody List<AddressDto> dto) {
+        return addressService.saveAll(dto);
     }
 
     @PutMapping("/{id}")

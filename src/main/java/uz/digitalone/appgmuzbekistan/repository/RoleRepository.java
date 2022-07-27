@@ -13,4 +13,5 @@ import uz.digitalone.appgmuzbekistan.entity.Role;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
+    boolean existsByName(String name);
 }

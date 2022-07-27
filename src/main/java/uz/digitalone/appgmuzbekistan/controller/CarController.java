@@ -1,5 +1,6 @@
 package uz.digitalone.appgmuzbekistan.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.digitalone.appgmuzbekistan.dto.CarDto;
 import uz.digitalone.appgmuzbekistan.dto.GMDto;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/cars")
+@RequiredArgsConstructor
 public class CarController {
 
     @GetMapping

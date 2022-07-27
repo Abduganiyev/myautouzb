@@ -27,7 +27,4 @@ public class Role extends AbsEntity {
     private String name;
 
     private String description;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    private Set<User> users = new HashSet<>();
 }

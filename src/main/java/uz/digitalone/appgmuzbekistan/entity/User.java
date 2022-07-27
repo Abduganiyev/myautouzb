@@ -39,5 +39,10 @@ public class User {
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Role> roles = new HashSet<>();
 
-
+    public User(String fullName, String email, Address address, Set<Role> roles) {
+        this.fullName = fullName;
+        this.email = email;
+        this.address = address;
+        this.roles = roles;
+    }
 }

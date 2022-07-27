@@ -1,5 +1,6 @@
 package uz.digitalone.appgmuzbekistan.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.digitalone.appgmuzbekistan.dto.GMDto;
 import uz.digitalone.appgmuzbekistan.entity.GM;
@@ -15,13 +16,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/companies")
+@RequiredArgsConstructor
 public class CompanyController {
     private final CompanyService companyService;
-
-    public CompanyController(CompanyService companyService) {
-        this.companyService = companyService;
-    }
-
     @GetMapping
     private List<GM> findAll() {
         return null;

@@ -1,5 +1,6 @@
 package uz.digitalone.appgmuzbekistan.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.digitalone.appgmuzbekistan.dto.UserDto;
 import uz.digitalone.appgmuzbekistan.entity.User;
@@ -15,13 +16,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/users")
+@RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
 
     @GetMapping
@@ -30,8 +28,8 @@ public class UserController {
     }
 
     @PostMapping
-    private User saveAll(@RequestBody List<UserDto> dto) {
-        return null;
+    private List<User> saveAll(@RequestBody List<UserDto> dto) {
+        return userService.saveAll(dto);
     }
 
     @PutMapping("/{id}")

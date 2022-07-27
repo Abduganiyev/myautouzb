@@ -1,11 +1,13 @@
 package uz.digitalone.appgmuzbekistan.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.digitalone.appgmuzbekistan.dto.RoleDto;
 import uz.digitalone.appgmuzbekistan.entity.Role;
 import uz.digitalone.appgmuzbekistan.service.RoleService;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Author: khamza@nightwell-logistics.com
@@ -15,12 +17,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/roles")
+@RequiredArgsConstructor
 public class RoleController {
 
     private final RoleService roleService;
-    public RoleController(RoleService roleService) {
-        this.roleService = roleService;
-    }
 
     @GetMapping
     private List<Role> findAll() {
@@ -28,8 +28,8 @@ public class RoleController {
     }
 
     @PostMapping
-    private Role saveAll(@RequestBody List<RoleDto> roles) {
-        return null;
+    private List<Role> saveAll(@RequestBody Set<RoleDto> roles) {
+        return roleService.saveAll(roles);
     }
 
     @PutMapping("/{id}")
