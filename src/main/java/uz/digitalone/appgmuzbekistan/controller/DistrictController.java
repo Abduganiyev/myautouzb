@@ -25,12 +25,12 @@ public class DistrictController {
 
     @GetMapping
     private List<District> findAll() {
-        return null;
+        return districtService.findAll();
     }
 
     @PostMapping
-    private District saveAll(@RequestBody List<DistrictDto> dto) {
-        return null;
+    private List<District> saveAll(@RequestBody List<District> districts) {
+        return districtService.saveAll(districts);
     }
 
     @PutMapping("/{id}")
