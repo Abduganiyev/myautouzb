@@ -24,7 +24,7 @@ public class UserController {
 
     @GetMapping
     private List<User> findAll() {
-        return null;
+        return userService.findAll();
     }
 
     @PostMapping
@@ -33,12 +33,12 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    private User updateRole(@PathVariable("id") Long roleId,@RequestBody UserDto dto) {
-        return null;
+    private User updateUser(@PathVariable("id") Long userId,@RequestBody UserDto dto) {
+        return userService.updateUser(userId, dto);
     }
 
     @DeleteMapping("/{id}")
-    private User deleteRole(@PathVariable Long id) {
-        return null;
+    private String deleteRole(@PathVariable Long id) {
+        return userService.deleteRole(id);
     }
 }

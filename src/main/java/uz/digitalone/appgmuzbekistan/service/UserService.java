@@ -10,4 +10,10 @@ import java.util.List;
 @Service
 public interface UserService {
     List<User> saveAll(List<UserDto> dto);
+
+    List<User> findAll();
+
+    User updateUser(Long userId, UserDto dto);
+
+    String deleteRole(Long id);
 }

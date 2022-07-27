@@ -10,4 +10,10 @@ import java.util.Set;
 @Service
 public interface RoleService {
     List<Role> saveAll(Set<RoleDto> roles);
+
+    List<Role> findAll();
+
+    Role updateRole(Long roleId, RoleDto role);
+
+    String deleteRole(Long id);
 }

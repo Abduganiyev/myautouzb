@@ -41,4 +41,41 @@ public class UserServiceImp implements UserService {
         }
         return userRepository.saveAll(users);
     }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public User updateUser(Long userId, UserDto dto) {
+        Set<Role> roleSet = new HashSet<>();
+        for (Long roleId : dto.getRoles()) {
+            Optional<Role> byId = roleRepository.findById(roleId);
+            byId.ifPresent(roleSet::add);
+        }
+        if (!userRepository.existsById(userId))
+            throw new RuntimeException("User Not Found");
+
+        if (!addressRepository.existsById(dto.getAddressId()))
+            throw new RuntimeException("Address Not Found");
+
+        Optional<User> updateUser = userRepository.findById(userId);
+        Optional<Address> address = addressRepository.findById(dto.getAddressId());
+        User user = updateUser.get();
+        user.setAddress(address.get());
+        user.setFullName(dto.getFullName());
+        user.setRoles(roleSet);
+
+        return userRepository.save(user);
+    }
+
+    @Override
+    public String deleteRole(Long id) {
+        if (userRepository.existsById(id)) {
+                userRepository.deleteById(id);
+                return "Successfully deleted";
+        }
+        throw new RuntimeException("Role Not Found");
+    }
 }

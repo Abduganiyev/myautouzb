@@ -24,7 +24,7 @@ public class RoleController {
 
     @GetMapping
     private List<Role> findAll() {
-        return null;
+        return roleService.findAll();
     }
 
     @PostMapping
@@ -34,11 +34,11 @@ public class RoleController {
 
     @PutMapping("/{id}")
     private Role updateRole(@PathVariable("id") Long roleId,@RequestBody RoleDto role) {
-        return null;
+        return roleService.updateRole(roleId,role);
     }
 
     @DeleteMapping("/{id}")
-    private Role deleteRole(@PathVariable String id) {
-        return null;
+    private String deleteRole(@PathVariable("id") Long roleId) {
+        return roleService.deleteRole(roleId);
     }
 }
