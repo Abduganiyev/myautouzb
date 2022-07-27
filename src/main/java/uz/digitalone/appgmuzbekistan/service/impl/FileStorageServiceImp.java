@@ -1,5 +1,7 @@
 package uz.digitalone.appgmuzbekistan.service.impl;
 
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import uz.digitalone.appgmuzbekistan.exception.FileStorageException;
@@ -7,6 +9,7 @@ import uz.digitalone.appgmuzbekistan.properties.StorageProperties;
 import uz.digitalone.appgmuzbekistan.service.FileStorageService;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -35,5 +38,15 @@ public class FileStorageServiceImp implements FileStorageService {
         Files.copy(multipartFile.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
 
         return filename;
+    }
+
+    @Override
+    public Resource downloadFile(String fileName) throws MalformedURLException, ClassNotFoundException {
+        Path path = this.fileLocation.resolve(fileName);
+        Resource resource = new UrlResource(path.toUri());
+        if (resource.exists())
+            return resource;
+
+        throw new ClassNotFoundException("File Not Found");
     }
 }
