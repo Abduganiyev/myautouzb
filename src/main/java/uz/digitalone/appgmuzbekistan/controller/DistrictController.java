@@ -29,7 +29,7 @@ public class DistrictController {
     }
 
     @PostMapping
-    private List<District> saveAll(@RequestBody List<District> districts) {
+    private List<District> saveAll(@RequestBody List<DistrictDto> districts) {
         return districtService.saveAll(districts);
     }
 

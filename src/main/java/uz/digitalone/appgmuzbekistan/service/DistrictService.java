@@ -1,6 +1,7 @@
 package uz.digitalone.appgmuzbekistan.service;
 
 import org.springframework.stereotype.Service;
+import uz.digitalone.appgmuzbekistan.dto.DistrictDto;
 import uz.digitalone.appgmuzbekistan.entity.District;
 
 import java.util.List;
@@ -9,5 +10,5 @@ import java.util.List;
 public interface DistrictService {
     List<District> findAll();
 
-    List<District> saveAll(List<District> districts);
+    List<District> saveAll(List<DistrictDto> districts);
 }
