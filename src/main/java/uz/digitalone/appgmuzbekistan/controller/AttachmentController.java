@@ -20,7 +20,7 @@ import java.net.MalformedURLException;
 public class AttachmentController {
     private final FileStorageService fileStorageService;
 
-    @PostMapping("/upload_file")
+    @PostMapping(value = "/upload_file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     private UploadFileResponse uploadFile(@RequestParam("file") MultipartFile multipartFile) throws IOException {
         String uploadFile = fileStorageService.uploadFile(multipartFile);
 
